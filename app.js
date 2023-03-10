@@ -30,29 +30,26 @@ app.use(express.static('public'))
 */
 // Route voor de index
 app.get('/', function (request, response) {
-  const url = 'https://whois.fdnd.nl/api/v1/squads';
+  const url = 'https://api.visualthinking.fdnd.nl/api/v1/methods/';
   fetchJson(url).then((data) => {
     response.render('index', data)
   })
 })
 
 //Route voor een squad overzicht om studenten te zoeken
-app.get('/squad/:id', function (request, response) {
+app.get('/method/:id', function (request, response) {
   // console.log("query",request.query);
   console.log("params",request.params)
-
-  // const url = "https://whois.fdnd.nl/api/v1/member/koop-reynders"
-  // const url = "https://whois.fdnd.nl/api/v1/squad/squat-c-2022"
   let id = request.params.id;
   let order = "name";
   let direction = "ASC";
-  let url = 'https://whois.fdnd.nl/api/v1/squad/'+id+"?orderBy="+order+"&direction="+direction;
+  let url = 'https://api.visualthinking.fdnd.nl/api/v1/method/'+id+"?orderBy="+order+"&direction="+direction;
   console.log("url",url)
 
   fetchJson(url).then((data) => {
     // console.log(data.squad.members.length)
     console.log("data",data)
-    response.render('squad', data)
+    response.render('method', data)
   })
 })
 

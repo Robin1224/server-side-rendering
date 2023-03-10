@@ -1,35 +1,37 @@
 <%- include('./partials/head') %>
 
+<header>
+      <img class="logo"></img>
+      <h1 class="title">Visual Thinking</h1>
+      <nav>
+        <ul>
+          <li>
+            <a class="nav-item" href="Over">Over</a>
+          </li>
+          <li>
+            <a class="nav-item" href="Blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+      <img></img>
+</header>
 <main>
-  <header>
-      <h1>FDND<span>Wie<span>Is</span>Wie</span></h1>
-  </header>
-  
-  <form>
-    <label for="searchSquad">Search squads:</label>
-    <div class="select">
-      <select name="searchSquad" id="searchSquad">
-        <option value="">Select:</option>
-        <% squads.forEach(squad => { %>
-          <% if (squad.name != "Minor Web") { %>
-            <option value="./squad/<%= squad.slug %>" > <%= squad.name %></option>
-          <% } %>
-        <% }) %>
-        <option value="./members">All members</option>
-      </select>
-      <span class="focus"></span>
-    </div>
-</form>
-
+  <section class="tagline-container">
+    <p class="tagline-label">Visual Thinking in het HBO</p>
+    <img class="tagline-frame"></img>
+  </section>
+  <section class="waarom-container">
+    <p class="waarom-label">Waarom vtHBO</p>
+    <img class="waarom-frame"></img>
+  </section>
+  <section class="methodes-container">
+    <p class="methodes-label">Wat is vtHBO</p>
+    <img class="methodes-frame"></img>
+  </section>
+  <section class="categorie-container">
+    <p class="categorie-label">Welke categorieën zijn er?</p>
+    <img class="categorie-frame"></img>
+  </section>
 </main>
-
-
-<script>
-  // Formulier get squad
-  document.querySelector('#searchSquad').addEventListener('change', (event) => {
-    // console.log(event.target.value);
-    window.location.href = event.target.value;
-  });
-</script>
 
 <%- include('./partials/foot') %>
