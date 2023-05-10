@@ -47,17 +47,10 @@ app.get('/method/:id', function (request, response) {
   console.log("url",url)
 
   fetchJson(url).then((data) => {
-    // console.log(data.squad.members.length)
     console.log("data",data)
     response.render('method', data)
   })
 })
-
-//Route voor memebers om namen te zoeken
-app.get('/members', function (request, response) {
-  response.render('members')
-})
-
 
 /* 
   SERVER SETTINGS
